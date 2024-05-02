@@ -43,10 +43,9 @@ export const CommentItem: FC<CommentItemProps> =
                 </SimpleCell>
                 : <SimpleCell multiline className={styles.commentLayout} before={<Avatar size={38} initials={comment.by[0]}/>}>
                     <InfoRow header={comment.by} getRootRef={commentTextRef} className={styles.commentContent}></InfoRow>
-                    {comment.kids && <Link
-                        onClick={!isChildCommentsOpen ? showChildComments : hideChildComments}>
+                    {comment.kids && <Link onClick={!isChildCommentsOpen ? showChildComments : hideChildComments}>
                         {isChildCommentsLoading
-                            ?' Loading...'
+                            ? 'Loading...'
                             : isChildCommentsOpen
                                 ? 'Hide responses'
                                 : 'Show responses'

@@ -2,6 +2,7 @@ import {FC} from 'react';
 import {CardGrid, CellButton, Group, Header, Pagination} from "@vkontakte/vkui";
 import {StoryCard} from "../../entities/story-card";
 import {Story} from "../../shared/api/types.ts";
+import styles from './styles.module.css'
 
 interface StoryListProps {
     latestStories: Story[];
@@ -18,9 +19,7 @@ export const StoryList: FC<StoryListProps> = ({latestStories, currentPage, handl
         >
             <CellButton
                 onClick={updateStoryList}
-                style={{
-                    marginBottom: '.5rem',
-                }}
+                className={styles.updateBtn}
             >
                 Update the news list
             </CellButton>
@@ -44,9 +43,7 @@ export const StoryList: FC<StoryListProps> = ({latestStories, currentPage, handl
                 totalPages={10}
                 disabled={false}
                 onChange={handlePageChange}
-                style={{
-                    marginTop: '1rem'
-                }}
+                className={styles.pagination}
             />
         </Group>
     );
