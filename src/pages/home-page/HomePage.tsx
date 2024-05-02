@@ -78,7 +78,6 @@ export const HomePage: FC<NavIdProps> = ({id}) => {
             clearInterval(interval)
         };
     }, [latestStoriesID]);
-
     return (
         <Panel id={id}>
             <PanelHeader>Hacker News</PanelHeader>

@@ -92,7 +92,7 @@ export const StoryPage: FC<NavIdProps> = ({id}) => {
     }
 
     return (
-        <Panel id={id}>
+        <Panel id={id} className={`${!story.kids ? styles.setFullWidth : ''}`}>
             <PanelHeader>Hacker News</PanelHeader>
             <Group className={styles.navigationBar}>
                 <SubnavigationBar mode={"overflow"} showArrows={"always"}>
