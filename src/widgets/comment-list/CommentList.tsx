@@ -1,7 +1,7 @@
 import {Comment} from "../../shared/api/types.ts";
 
 import {FC, Fragment, useCallback, useState} from "react";
-import {Group} from "@vkontakte/vkui";
+import {Group, Separator} from "@vkontakte/vkui";
 import {CommentItem} from "../../entities/comment-item";
 import styles from './styles.module.css'
 import {useLazyGetItemByIdQuery} from "../../shared/api";
@@ -16,17 +16,22 @@ export const CommentList: FC<CommentListProps> = ({comments}) => {
 
     const displayCommentsTree = useCallback((comment: Comment, treeLevel: number = 0) => {
         if ((!comment.kids && treeLevel === 0) || (comment.kids && !childComments[comment.id] && treeLevel === 0)) {
-            return <CommentItem
-                comment={comment}
-                key={comment.id}
-                openChildComments={openChildComments}
-                closeChildComments={closeChildComments}
-                isChildCommentsOpen={childComments[comment.id] && childComments[comment.id].length !== 0}
-            />
+            return (
+                <Fragment key={comment.id}>
+                    <Separator/>
+                    <CommentItem
+                        comment={comment}
+                        openChildComments={openChildComments}
+                        closeChildComments={closeChildComments}
+                        isChildCommentsOpen={childComments[comment.id] && childComments[comment.id].length !== 0}
+                    />
+                </Fragment>
+            )
         }
         else if ((!comment.kids && treeLevel > 0) || (comment.kids && !childComments[comment.id] && treeLevel > 0)) {
             return (
                 <li key={comment.id}>
+                    <Separator/>
                     <CommentItem
                         comment={comment}
                         openChildComments={openChildComments}
@@ -39,6 +44,7 @@ export const CommentList: FC<CommentListProps> = ({comments}) => {
             let childCommentsId: Comment[] = childComments[comment.id]
             return (
                 <Fragment key={comment.id}>
+                    <Separator/>
                     <CommentItem
                         comment={comment}
                         openChildComments={openChildComments}
@@ -47,7 +53,7 @@ export const CommentList: FC<CommentListProps> = ({comments}) => {
                     />
                     <ul>
                         {childCommentsId.map(childComment => {
-                            return displayCommentsTree(childComment, treeLevel)
+                            return displayCommentsTree(childComment, treeLevel + 1)
                         })}
                     </ul>
                 </Fragment>
