@@ -16,5 +16,5 @@
 
 ## Результат
 - app id приложения: 51916787
-- ссылка на приложение: https://prod-app51916787-b0468da61a7f.pages-ac.vk-apps.com/index.html
+- ссылка на приложение: https://prod-app51916787-4b655aabdde1.pages-ac.vk-apps.com/index.html
 
