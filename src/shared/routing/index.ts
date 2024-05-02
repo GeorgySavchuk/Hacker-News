@@ -1,0 +1,1 @@
+export {routes, DEFAULT_ROOT, DEFAULT_VIEW, DEFAULT_VIEW_PANELS, router} from './routes.ts'

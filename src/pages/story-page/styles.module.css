@@ -1,0 +1,30 @@
+.storyText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    & * {
+        margin: 0;
+    }
+}
+.storyBlockHeader, .navigationBar {
+    box-sizing: border-box;
+}
+.storyHref {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    & > :first-child {
+        padding-right: 0.5rem;
+    }
+}
+.comments, .commentsCount {
+    padding-top: 0;
+}
+.comments.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+.loader {
+    margin: 1rem 0;
+}

@@ -1,0 +1,16 @@
+.commentLayout {
+    display: flex;
+    align-items: center;
+    & > :first-child {
+        align-self: flex-start;
+        padding-top: 10px;
+    }
+}
+.commentContent {
+    & > :first-child {
+        margin-bottom: .5rem;
+    }
+    & > * {
+        margin: 0;
+    }
+}
